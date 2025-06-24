@@ -13,6 +13,10 @@ const endpoint = "https://models.github.ai/inference";
 const model = "openai/gpt-4.1";
 const token = process.env.GITHUB_TOKEN; // Put your GitHub token in .env as GITHUB_TOKEN
 
+app.get("/", (req, res) => {
+  res.send("AI To-Do backend server is running.");
+});
+
 app.post("/api/ai-suggestion", async (req, res) => {
   const { task } = req.body;
   if (!task) return res.status(400).json({ error: "Missing task" });
